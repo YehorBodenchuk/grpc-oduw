@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package chat;
+
+service ChatService {
+  rpc SendMessage (Message) returns (Empty);
+  rpc Join (JoinRequest) returns (stream Message);
+}
+
+message Message {
+  string username = 1;
+  string text = 2;
+}
+
+message JoinRequest {
+  string username = 1;
+}
+
+message Empty {}
